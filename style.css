@@ -1,5 +1,5 @@
 :root {
-  --primary-color: dodgerblue;
+  --primary-color: rgb(116, 138, 18);
   --font-color: white;
 }
 
@@ -23,6 +23,11 @@ body {
   font-size: 30px;
 }
 
+.fa-solid:hover{
+  color: var(--primary-color);
+
+}
+
 .player {
   max-width: 80vw;
   min-width: 800px;
@@ -43,7 +48,6 @@ video {
 .show-controls {
   width: 100%;
   height: 30%;
-  background: dodgerblue;
   z-index: 2;
   position: absolute;
   bottom: 0;
@@ -61,7 +65,13 @@ video {
   z-index: 5;
   display: flex;
   justify-content: space-between;
+  opacity: 0;
+  transition: all 0.5s ease-out 2s;
+}
 
+.show-controls:hover .controls-container{
+  opacity: 1;
+  transition: all 0.2s ease-out ;
 }
 
 
@@ -84,21 +94,27 @@ video {
 
 /* Progress Bar */
 .progress-range {
-
+  height: 8px;
+  width: calc(100% - 30px);
+  background-color: #696969b4;
   margin: auto;
   border-radius: 10px;
   position: absolute;
   left: 15px;
   top: 15px;
   cursor: pointer;
+  transition: height 0.1s ease-in-out;
+}
 
+.progress-range:hover{
+  height: 20px;
 }
 
 
 
 .progress-bar {
   background: var(--primary-color);
-  width: 50%;
+  width: 20%;
   height: 100%;
   border-radius: 10px;
   transition: all 0.5s ease;
@@ -122,34 +138,6 @@ video {
   cursor: pointer;
 }
 
-/* Volume */
-.volume-icon {
-  cursor: pointer;
-}
-
-.volume-range {
-  height: 8px;
-  width: 100px;
-  background: rgba(70, 70, 70, 0.5);
-  border-radius: 10px;
-  position: relative;
-  top: -21px;
-  left: 50px;
-  cursor: pointer;
-}
-
-.volume-bar {
-  background: var(--font-color);
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  transition: width 0.2s ease-in;
-}
-
-.volume-bar:hover {
-  background: var(--primary-color);
-}
-
 /* Right Controls ---------------------------- */
 .controls-right {
   justify-content: flex-end;
@@ -167,10 +155,22 @@ video {
   margin-right: 15px;
 }
 
+select{
+  cursor: pointer;
+}
+
+option{
+  cursor: pointer;
+}
+
+select:focus{
+  outline: none;
+}
+
 
 
 select {
-
+  background-color: transparent;
   color: var(--font-color);
   border: none;
   font-size: 18px;
